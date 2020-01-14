@@ -141,9 +141,7 @@ function onWindowLoad() {
 	clearButton.onclick = clearNames;
 	updateSavedNames();
   var isDash = false;
-  alert("Here");
 
-  // Collect elements (textbox, input number, button) from HTML doc ('popup.html')
 
   var butt = document.getElementById("savename");
   var pasteButt = document.getElementById("paste");
@@ -175,8 +173,7 @@ function onWindowLoad() {
 	  	// Pass all the package data and get back only emails and their dates.
 	  	infoMap = parseData(data);
 	  	currentName = infoMap;
-	  	//alert("here");
-	  	
+	  
 	  	
 	  	nameCell.innerText = infoMap.fname + " " + infoMap.lname;
 	  	//alert(nameCell.innerText);
@@ -205,26 +202,14 @@ function onWindowLoad() {
 		  			updateSavedNames();
 		  		}
 		  		
-			  	/*
-		  		chrome.storage.local.get([new_key], function(result){
-		  			alert("test");
-		  			alert(JSON.stringify(result));
-		  			alert(result[new_key]);
-		  		})
-				*/
-		  		//return 0;
-		  		
 	  		});
 
-	  		
-	  		
-	  		
 
 	  		});
 		  	
 		  	
 
-	  	// Enable input and button when on correct page
+	  	// Enable button when on correct page
 	  	butt.disabled=false;
 
 

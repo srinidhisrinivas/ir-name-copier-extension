@@ -6,36 +6,35 @@ since you don't have to worry about too many things.
 <!doctype html>
 <html>
   <head>
-    <title>IR Student Info Copier</title>
+    <title>IR Helper</title>
     <!-- Linking JavaScript file and CSS file -->
     <script src="popup.js"></script>
     <link rel="stylesheet" type="text/css" href="popup.css">
   </head>
   <body width="800px">
-    <div id="header"><center><h1 id="section1">IR Student Info Copier</h1></center></div>
+    <div id="header"><center><h1 id="section1">IR Helper</h1></center></div>
     <div id="currentName"> 
-    	<div id="h4"> Current Name </div>
+    	<div id="h4"> You are viewing... </div>
     	<table id="currentnamerow">
             <tr>
         		<td id="name"> N/A </td> <!-- Name -->
         		<td id="dob"> N/A </td> <!-- DOB -->
         		<td id="room"> N/A </td> <!-- Room -->
             </tr>
+            
     	</table>
     </div>
 
     
     
     <!-- This is the button to press to make the extension copy the email addresses. -->
-    <div id="buttonbox">
-        <table padding=2px>
-            <tr>
-                <td height=30px><button id="savename" disabled="true">Save</button></td>
-                <td height=30px><button id="clear"> Clear </button></td>
-                <td height=30px><button id="paste" disabled="true">Paste</button></td>
-            </tr>
-        </table>    
-    </div>
+    <table id="buttonbox">
+        <tr>
+            <td height=30px><button id="savename" disabled="true">Save Name</button></td>
+            <td height=30px><button id="clear"> Clear All Names </button></td>
+            <td height=30px><button id="paste" disabled="true">Paste All Names</button></td>
+        </tr>
+    </table>
     <div id="h4"> Saved Names </div>
     <table id="savednamerows">
 

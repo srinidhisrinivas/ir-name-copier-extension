@@ -1,4 +1,5 @@
 //alert("we out here");
+
 function parseData(data){
 	
 	//var infoMap = new Map();
@@ -17,39 +18,58 @@ function parseData(data){
 	};
 	
 	
-	//infoMap.set(packageInfo.emplid, packageInfo);	
-	
 	return infoMap;
+}
+
+function dateToString(date){
+	var result="";
+	result += date.getFullYear()+"-";
+	if(date.getMonth() < 9){
+		result += "0";
+	}
+	result += (date.getMonth() + 1)+"-";
+	if(date.getDate() < 10){
+		result += "0";
+	}
+	result += date.getDate();
+	return result;
 }
 
 chrome.storage.local.get(["keys"], function(result){
 		if("keys" in result){
 			keys = JSON.parse(result.keys);
 		}
-		var j;
-		
-		for(j = 0; j < keys.length; j++){
-			
-			function enterInfo(info){
-				alert(info.fname);
-				alert(j);
-				var person = document.getElementById("person_"+j);
-				person.value = info.fname + " " + info.lname;
-			}
 
-			var info = null;
-			chrome.storage.local.get([keys[i]], function(result){
+		function enterInfo(key, person){
+			const EMAIL_SUFFIX = "@osu.edu";
+			const DEFAULT_ROLE = "Alleged";
+			chrome.storage.local.get([key], function(result){
+				var info = null;
 				currentKey = Object.keys(result)[0];
-				
 				if(currentKey in result){				
 					info = parseData(result[currentKey]);
 				}
-				alert("here");
-				enterInfo(info);
-
+				var p = document.getElementById("person_"+person);
+				p.value = info.fname + " " + info.lname;
+				var gender = document.getElementById("gender_"+person);
+				gender.value = info.gender;
+				var role = document.getElementById("role_"+person);
+				role.value = DEFAULT_ROLE;
+				var emplid = document.getElementById("sid_"+person);
+				emplid.value = info.emplid;
+				var dob = document.getElementById("dob_"+person);
+				dob.value = dateToString(info.dob);
+				var phone = document.getElementById("phone_"+person);
+				phone.value = info.phone;
+				var email = document.getElementById("email_"+person);
+				email.value = info.dotnum + EMAIL_SUFFIX;
+				var addr = document.getElementById("halladdress_"+person);
+				addr.value = info.room;
 			});
 			
+		}
+		for(var j = 0; j < keys.length; j++){
 			
-			//table.appendChild()
+			enterInfo(keys[j], j);
 		}
 	});

@@ -41,11 +41,19 @@ table, th, td {
 	border: 0.5px black;
 	
 }
+tr{
+	padding: 8px 2px;
+}
 td {
 	font-family: sans-serif;
 	color: black;
 	text-align: center;
 	font-size: 14px;
+}
+
+table#buttonbox{
+	table-layout: fixed;
+
 }
 table{
 	width: 100%;
@@ -86,7 +94,7 @@ button{
 body {
   width: 450px;
   margin: 0 auto;
-  background-color: #d3d3d3;
+  background-color: #dbdbdb;
   padding: 0 20px 20px 20px;
   border: 15px solid #ffca00;
 }
